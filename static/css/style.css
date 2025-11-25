@@ -68,6 +68,10 @@
 }
 
 /*upload image*/
+.title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
 #drop-area {
     width:80%;
     height:200px;
@@ -95,10 +99,11 @@
 }
 
 .form-control::placeholder {
-    color:#afadad !important;;
+    color:#afadad;
 }
+
 .requiredStart {
-    color: red;
+    color: rgb(209, 23, 23);
 }
 
 #errorMessage {
@@ -109,19 +114,15 @@
 
 @media only screen and (max-width: 600px) {
     html {
-        /*for the login/sign pages/ upload*/
-        font-size: 11px;
+        font-size: 15px;
     }
 
-    .hero-container  {
-        height: 65vh;
+    #offcanvasDarkNavbar {            
+        min-width: 150px;       
+        max-width: 250px; 
+        font-size: 1.15rem;     
     }
-
-    #offcanvasDarkNavbar {
-        width: auto;            
-        min-width: 300px;       
-        max-width: 500px;      
-    }
+    
     .nav-item {
         padding-right: 15px;
         margin-bottom: 5px;
@@ -137,4 +138,26 @@
         text-align: center;
     }
 
+    /*home*/
+    .hero-container  {
+        height: 65vh;
+    }
+
+    /*upload*/
+    #form-missing label {
+        font-weight: bold;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .send-btn {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    #img-view img{
+        width:15%;
+    }
 }

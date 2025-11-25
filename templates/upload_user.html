@@ -3,31 +3,31 @@
 {% block title %}Upload Missing Person{% endblock %}
 
 {% block content %}
-<div class="container mt-4 text-center" id="upload-page">
+<div class="container mt-0 text-center" id="upload-page">
   <div class="row g-5 m-1 justify-content-around">
     <!-- Column 1 (Main)-->
-    <div class="col-12 col-lg-5 p-0 rounded shadow">
-      <div class="p-2">ادخل بيانات المفقود</div>
+    <div class="col-11 col-lg-5 p-0 rounded shadow mt-5">
+      <div class="p-2 title">ادخل بيانات  المفقود</div>
       <form method="POST" class="row g-0 justify-content-center" id="form-missing" novalidate>
           <!--image preview-->
-          <div class="col-6 col-lg-11 p-1 d-flex flex-column align-items-center justify-content-center">
+          <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
             <label for="input-image" id="drop-area">
                 <input type="file" accept="image/*" id="input-image" name="image" required hidden>
                 <div id="img-view">
                   <img src="static/images/upload.png" alt="upload icon">
-                  <p>ارفع صورة للشخص المفقود <span class="requiredStart">*</span></p>
+                  <p>ارفع صورة للشخص المفقود<span class="requiredStart">*</span></p>
                 </div>
             </label>
           </div>
 
           <!--image detail-->
-          <div class="col-5 col-lg-12 p-2 ms-1 me-1 flex-column align-items-center justify-content-center text-end">
+          <div class="col-12 p-2 ms-1 me-1 p-0 flex-column align-items-center justify-content-center text-end">
               <div class="row g-1">
-                <div class="col-12 col-lg-9">
+                <div class="col-9">
                   <label for="name" class="me-2">الاسم<span class="requiredStart">*</span></label>
                   <input type="text" name="name" id="name" class="form-control mb-1" placeholder="مثال: احمد محد" required>
                 </div>
-                <div class="col-12 col-lg-3">
+                <div class="col-3">
                   <label for="age" class="me-2">العمر</label>
                   <input type="number" name="age" id="age" min="0" max="150" class="form-control mb-1" placeholder="مثال: 30">
                 </div>
@@ -38,20 +38,20 @@
               <input type="text" name="phoneNum1" id="phoneNum1" class="form-control mb-2" pattern="^\+?[0-9]{8,15}$" placeholder="مثال: 249xxxxxxxxx+">
               <label for="phoneNum2" class="me-2 mb-1">رقم هاتف اخر للطوارئ<span class="requiredStart">*</span></label>
               <input type="text" name="phoneNum2" id="phoneNum2" class="form-control mb-2" pattern="^\+?[0-9]{8,15}$" placeholder="مثال: 249xxxxxxxxx+">
-              <!--error message-->
-              <div role="alert" id="errorMessage" hidden>
-              الرجاء ملء جميع الحقول المطلوبة بشكل صحيح.
-            </div>
+          </div>
+          <!--error message-->
+          <div role="alert" id="errorMessage" hidden>
+            الرجاء ملء جميع الحقول المطلوبة بشكل صحيح
           </div>
           <!--submit-->
           <div class="col-12 d-grid">
-             <button class="btn btn-success m-3" type="submit">رفع</button>
+             <button class="btn btn-success send-btn m-3" type="submit">ارسال</button>
           </div>
       </form>
     </div>  
 
     <!-- Column 2 (Result)-->
-    <div class="col-12 col-lg-5 rounded shadow bg-body-tertiary">      
+    <div class="col-11 col-lg-5 rounded shadow bg-body-tertiary">      
       <div class="p-3 border">Column 2</div>
     </div>
   </div>
