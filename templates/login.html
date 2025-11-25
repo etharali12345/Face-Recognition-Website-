@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+
+{% block title %}Login{% endblock %}
+
+{% block content%}
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-10 col-lg-6 rounded shadow bg-body-tertiary p-4 mt-5">
+            <h3 class="mb-4">تسجيل الدخول</h3>
+            <!--Form-->
+            <form action="#" method="POST" class="needs-validation" id="LoginForm" novalidate>
+                <!--Email or Phone-->
+                <div class="form-floating mb-3">
+                    <input type="text" name="emailOrPhone" class="form-control" id="emailOrPhone" placeholder="" required pattern="(^\+?[0-9]{8,15}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)">
+                    <label for="emailOrPhone">البريد الالكتروني او الهاتف</label>
+                    <div class="invalid-feedback text-end">
+                       الرجاء إدخال بريد إلكتروني او رقم هاتف صالح
+                    </div>
+                </div>
+                <!--Password-->
+                <div class="form-floating mb-3">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="" required>
+                    <label for="password" class="text-start">كلمة المرور</label>
+                    <div class="invalid-feedback text-end">
+                        الرجاء إدخال كلمة المرور
+                    </div>
+                </div>
+                <!--Login btn-->
+                <div class="d-grid mb-3">
+                    <button class="btn btn-success" type="submit">تسجيل</button>
+                </div>
+                <div class="alert alert-danger" role="alert" id="userInvalid" hidden>
+                    بيانات الدخول غير صحيحة. يرجى المحاولة مرة أخرى.
+                </div>
+            </form>
+            <div>
+                ليس لديك حساب؟ <a href="/sign_up">انشاء حساب</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{%extends "base.html"%}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content%}
+<div class="container mt-4 mb-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-10 col-lg-6 rounded shadow bg-body-tertiary p-4 mt-5">
+            <h3 class="mb-4">انشاء حساب</h3>
+            <!--Form-->
+            <form action="#" method="POST" class="needs-validation" id="signUpForm" novalidate>
+                <!--Name-->
+                <div class="row g-1 mb-3">
+                    <div class="col form-floating">
+                        <input type="text" name="fname" id="fname" class="form-control" placeholder="" required>
+                        <label for="fname">الاسم الاول</label>
+                        <div class="invalid-feedback text-end">
+                           الرجاء إدخال الاسم الاول
+                        </div>
+                    </div>
+                    <div class="col form-floating">
+                        <input type="text" name="lname" id="lname" class="form-control" placeholder="" required>
+                        <label for="lname">الاسم الاخير </label>
+                        <div class="invalid-feedback text-end">
+                            الرجاء إدخال الاسم الاخير
+                        </div>
+                    </div>
+                </div>
+                <!--Email or Phone-->
+                <div class="form-floating mb-3">
+                    <input type="text" name="emailOrPhone" class="form-control" id="emailOrPhone" placeholder="" required pattern="(^\+?[0-9]{8,15}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)">
+                    <label for="emailOrPhone">البريد الالكتروني او الهاتف</label>
+                    <div class="invalid-feedback text-end">
+                      الرجاء إدخال بريد إلكتروني او رقم هاتف صالح
+                    </div>
+                </div>
+                <!--Password-->
+                <div class="input-group has-validation mb-3" dir="ltr">
+                    <span id="passwordImg-box" class="input-group-text">
+                        <img id="passwordImg" src="static/images/hidden.png" alt="eye">
+                    </span>
+                    <div id="passwordFloating" class="form-floating" dir="rtl">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="" required pattern=".{5,}"> 
+                        <label for="password">كلمة المرور</label>
+                    </div>
+                    <div class="invalid-feedback text-end">
+                       الرجاء إدخال كلمة مرور تحتوي على 5 أحرف على الأقل
+                    </div>
+                </div>
+
+                <!--Submit-->
+                <div class="d-grid mb-3">
+                    <button class="btn btn-success" type="submit">تسجيل</button>
+                </div>
+                <div class="alert alert-danger" role="alert" id="errorMessage" hidden>
+                </div>
+            </form>
+            <div>
+                لديك حساب؟ <a href="/login">تسجيل دخول</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/sign_up.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My App{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+  rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa&display=swap" rel="stylesheet"></link>
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet"></link>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark p-0">
+    <div class="container-fluid d-flex align-items-center">
+      <a class="navbar-brand h1 ps-4 m-0" href="/">
+        <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="Logo" width="70" height="50">
+      </a>
+      <!-- Toggle + Offcanvas -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="sidebar offcanvas offcanvas-start text-bg-dark" id="offcanvasDarkNavbar">
+        <div class="offcanvas-header border-bottoms justify-content-center">
+          <h5 class="offcanvas-title text-center">القائمة &nbsp</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-between flex-grow-1 pe-3 ps-3">
+            <li class="nav-item">
+              <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">الرئسية</a>
+            </li>
+            <li class="nav-item login-btn" id="login-mainBtn">
+              <a href="/login" class="btn btn-success {% if request.path == '/login' %} disabled {% endif %}" id="use_nav">تسجيل الدخول</a>
+            </li>
+            <!--admin-->
+            <li class="nav-item admin-nav" hidden>
+              <a href="/upload_missing" class="nav-link {% if request.path == '/admin_upload' %}active{% endif %}">رفع الصور</a>
+            </li>
+            <li class="nav-item admin-nav" hidden>
+              <a href="/admin_missin_db" class="nav-link">الصور المرفوعة</a>
+            </li>
+            <li class="nav-item admin-nav" hidden>
+              <a href="/admin_founded_db" class="nav-link">بيانات المفقودين</a>
+            </li>
+            <li class="nav-item admin-nav login-btn" hidden>
+              <a href="/login" class="btn btn-success">
+                <img src="/static/images/user.png" class="user-img" alt="حسابي">  
+              </a>
+            </li>
+            <!--user-->
+            <li class="nav-item user-nav" hidden>
+              <a href="/upload_missing" class="nav-link {% if request.path == '/upload_missing' %} active {% endif %}" >رفع الصور</a>
+            </li>
+            <li class="nav-item user-nav" hidden>
+              <a href="/user_db" class="nav-link">بيانات تم رفعها</a>
+            </li>
+            <li class="nav-item user-nav login-btn" hidden>
+              <a href="/login" class="btn btn-success">
+                <img src="/static/images/user.png" class="user-img" alt="حسابي">  
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  {% block content %}{% endblock %}
+
+  <script src="{{ url_for('static', filename='js/role_based.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
