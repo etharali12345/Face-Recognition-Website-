@@ -42,16 +42,18 @@
     قبل رفع الصورة الرجاء قراءة التعليمات 
     <span data-bs-toggle="modal" data-bs-target="#instructions" id="instruction_link">التالية</span>
   </p>
-  <!-- Row -->
+  <!-- Row Whole page-->
   <div class="row justify-content-center align-items-start">
+
     <!-- Column 1 (Main Missing)-->
     <div class="col-11 col-md-5 ms-md-5 p-2 rounded shadow">
       <div class="p-2 title">
         <p>ادخل بيانات الشخص المفقود</p>
       </div>
+      <!-- form Row-->
       <form method="POST" class="row g-0 justify-content-center" id="form-missing" novalidate>
-          <!--image preview-->
-          <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
+          <!--image preview Column-->
+          <div class="col-11 p-1">
             <label for="input-image" id="drop-area">
                 <input type="file" accept="image/*" id="input-image" name="image" required hidden>
                 <div id="img-view">
@@ -60,21 +62,20 @@
                 </div>
             </label>
           </div>
-
-          <!--image detail-->
-          <div class="col-12 p-2 ms-1 me-1 p-0 flex-column align-items-center justify-content-center text-end">
+          <!--image detail Column-->
+          <div class="col-11 text-end">
               <!--name & age-->
               <div class="row g-1">
                 <div class="col-9">
                   <label for="name">الاسم<span class="requiredStart">*</span></label>
-                  <input type="text" name="name" id="name" class="form-control mb-1" placeholder="مثال: احمد محمد" required>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="مثال: احمد محمد" required>
                 </div>
                 <div class="col-3">
                   <label for="age">العمر</label>
-                  <input type="number" name="age" id="age" min="0" max="150" class="form-control mb-1" placeholder="30">
+                  <input type="number" name="age" id="age" min="0" max="150" class="form-control" placeholder="30">
                 </div>
               </div>
-              <!--Gender &  last seen dat-->
+              <!--gender &  last seen dat-->
               <div class="row g-2">
                 <div class="col-6">
                   <label for="gender">الجنس<span class="requiredStart">*</span></label>
@@ -86,14 +87,14 @@
                 </div>
                 <div class="col-6">
                   <label for="lastSeenDate">تاريخ اخر مشاهدة</label>
-                  <input type="date" class="form-control mb-2 text-end holder" name="lastSeenDate" id="lastSeenDate">
+                  <input type="date" class="form-control text-end holder" name="lastSeenDate" id="lastSeenDate">
                 </div>
               </div>
                 <!--last seen location-->
-                <label for="lastSeen" class="mb-1">اخر مكان شوهد فيه</label>
-                <textarea class="form-control mb-2" name="lastSeen" id="lastSeen" rows="2" placeholder="مثال: شوهد في امدرمان - في الثورة"></textarea> 
+                <label for="lastSeen">اخر مكان شوهد فيه</label>
+                <textarea class="form-control" name="lastSeen" id="lastSeen" rows="2" placeholder="مثال: شوهد في امدرمان - في الثورة"></textarea> 
               <!--contact numbers-->
-              <div class="row  justify-content-center align-items-end g-2 mb-2">
+              <div class="row  justify-content-center align-items-end g-2">
                 <div class="col-6">
                     <label for="phoneNum1">رقم هاتف للتواصل<span class="requiredStart">*</span></label>
                     <input type="text" name="phoneNum1" id="phoneNum1" class="form-control" pattern="^\+?[0-9]{8,15}$" placeholder="249xxxxxxxxx+" required>
@@ -109,23 +110,32 @@
             الرجاء ملء جميع الحقول المطلوبة
           </div>
           <!--submit-->
-          <div class="col-12 d-grid">
-             <button class="btn btn-success send-btn ms-2 me-2 mb-3" type="submit">ارسال</button>
+          <div class="col-11 d-grid">
+             <button class="btn btn-success send-btn mb-3 mt-3" type="submit">ارسال</button>
           </div>
       </form>
     </div>  
 
     <!-- Column 2 (Result)-->
-    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0" id="result-column">      
+    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0" id="result-column"> 
+      <!-- Percent -->     
       <div class="p-2 title percent-container">
         <p class="percent">90%</p>
         <div class="percent_circle"></div>
-      </div>  
+      </div> 
+      <!-- row-->
       <div class="row g-0 justify-content-center">
+        <!-- result image Column-->
         <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
           <div id="drop-result">
               <div id="imgResult-view" style="background-image: url('static/uploads/hostage2.jpg');">
           </div>
+        </div>
+        <!-- result detail Column-->
+        <div class="col-11 text-end">
+          <p>الاسم</p>
+          <p>الاسم</p>
+          <p>العمر</p>
         </div>
       </div>
     </div>

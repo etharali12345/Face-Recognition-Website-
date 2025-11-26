@@ -118,6 +118,11 @@
 
 #form-missing label {
     margin-right: 4px;
+    margin-bottom: 3px;
+}
+
+#form-missing .row, #form-missing textarea{
+    margin-bottom: 4px;
 }
 
 .requiredStart {

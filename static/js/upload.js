@@ -15,6 +15,7 @@ inputFile.addEventListener('change', function (){
 });
 
 let data = {
+    valid: true,
     match: true,
     image_path: 'static/founds/sample.jpg',
     percent: 70,
