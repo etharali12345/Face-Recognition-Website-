@@ -37,16 +37,18 @@
 </div>
 
 <!--Container-->
-<div class="container-lg mt-4 text-center" id="upload-page">
+<div class="container-lg mt-4 mb-5 text-center" id="upload-page">
   <p>
     قبل رفع الصورة الرجاء قراءة التعليمات 
     <span data-bs-toggle="modal" data-bs-target="#instructions" id="instruction_link">التالية</span>
   </p>
   <!-- Row -->
-  <div class="row g-5 m-1 justify-content-around">
-    <!-- Column 1 (Main)-->
-    <div class="col-11 col-md-5 p-2 rounded shadow mt-0">
-      <div class="p-2 title">ادخل بيانات الشخص المفقود</div>
+  <div class="row justify-content-center align-items-start">
+    <!-- Column 1 (Main Missing)-->
+    <div class="col-11 col-md-5 ms-md-5 p-2 rounded shadow">
+      <div class="p-2 title">
+        <p>ادخل بيانات الشخص المفقود</p>
+      </div>
       <form method="POST" class="row g-0 justify-content-center" id="form-missing" novalidate>
           <!--image preview-->
           <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
@@ -61,22 +63,46 @@
 
           <!--image detail-->
           <div class="col-12 p-2 ms-1 me-1 p-0 flex-column align-items-center justify-content-center text-end">
+              <!--name & age-->
               <div class="row g-1">
                 <div class="col-9">
-                  <label for="name" class="me-2">الاسم<span class="requiredStart">*</span></label>
+                  <label for="name">الاسم<span class="requiredStart">*</span></label>
                   <input type="text" name="name" id="name" class="form-control mb-1" placeholder="مثال: احمد محمد" required>
                 </div>
                 <div class="col-3">
-                  <label for="age" class="me-2">العمر</label>
+                  <label for="age">العمر</label>
                   <input type="number" name="age" id="age" min="0" max="150" class="form-control mb-1" placeholder="30">
                 </div>
               </div>
-              <label for="lastSeen" class="me-2 mb-1">اخر مكان شوهد فيه</label>
-              <textarea class="form-control mb-2" name="lastSeen" id="lastSeen" rows="2" placeholder="مثال: شوهد في امدرمان - في الثورة"></textarea> 
-              <label for="phoneNum1" class="me-2 mb-1">رقم هاتف للتواصل<span class="requiredStart">*</span></label>
-              <input type="text" name="phoneNum1" id="phoneNum1" class="form-control mb-2" pattern="^\+?[0-9]{8,15}$" placeholder="مثال: 249xxxxxxxxx+">
-              <label for="phoneNum2" class="me-2 mb-1">رقم هاتف اخر للطوارئ<span class="requiredStart">*</span></label>
-              <input type="text" name="phoneNum2" id="phoneNum2" class="form-control mb-2" pattern="^\+?[0-9]{8,15}$" placeholder="مثال: 249xxxxxxxxx+">
+              <!--Gender &  last seen dat-->
+              <div class="row g-2">
+                <div class="col-6">
+                  <label for="gender">الجنس<span class="requiredStart">*</span></label>
+                  <select id="gender" name="gender" class="form-select" required>
+                    <option value="" selected hidden>اختر الجنس</option>
+                    <option value="1">ذكر</option>
+                    <option value="2">انثى</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label for="lastSeenDate">تاريخ اخر مشاهدة</label>
+                  <input type="date" class="form-control mb-2 text-end holder" name="lastSeenDate" id="lastSeenDate">
+                </div>
+              </div>
+                <!--last seen location-->
+                <label for="lastSeen" class="mb-1">اخر مكان شوهد فيه</label>
+                <textarea class="form-control mb-2" name="lastSeen" id="lastSeen" rows="2" placeholder="مثال: شوهد في امدرمان - في الثورة"></textarea> 
+              <!--contact numbers-->
+              <div class="row  justify-content-center align-items-end g-2 mb-2">
+                <div class="col-6">
+                    <label for="phoneNum1">رقم هاتف للتواصل<span class="requiredStart">*</span></label>
+                    <input type="text" name="phoneNum1" id="phoneNum1" class="form-control" pattern="^\+?[0-9]{8,15}$" placeholder="249xxxxxxxxx+" required>
+                </div>
+                <div class="col-6">
+                    <label for="phoneNum2">رقم اخر للطوارئ<span class="requiredStart">*</span></label>
+                    <input type="text" name="phoneNum2" id="phoneNum2" class="form-control" pattern="^\+?[0-9]{8,15}$" placeholder="249xxxxxxxxx+" required>
+                </div>
+              </div>
           </div>
           <!--error message-->
           <div class="col-11" role="alert" id="errorMessage" hidden>
@@ -90,8 +116,18 @@
     </div>  
 
     <!-- Column 2 (Result)-->
-    <div class="col-11 col-md-5 rounded shadow bg-body-tertiary" hidden>      
-      <div class="p-3 border">Column 2</div>
+    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0" id="result-column">      
+      <div class="p-2 title percent-container">
+        <p class="percent">90%</p>
+        <div class="percent_circle"></div>
+      </div>  
+      <div class="row g-0 justify-content-center">
+        <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
+          <div id="drop-result">
+              <div id="imgResult-view" style="background-image: url('static/uploads/hostage2.jpg');">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

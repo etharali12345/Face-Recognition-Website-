@@ -36,9 +36,9 @@ def upload_missing():
         image = request.files.get("image")
         if image:
             image.save("static/uploads/" + image.filename)
-            return "Image uploaded successfully!" 
+            return jsonify({'match': True})
         else:
-            return "No image uploaded.", 400
+            return jsonify({'match': False})
 
     else:
         return render_template('upload_user.html')

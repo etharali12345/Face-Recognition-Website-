@@ -87,7 +87,14 @@
     background-color: rgb(240, 254, 255);
 }
 
-#img-view{
+#drop-result {
+    width:80%;
+    height:200px;
+    background-color: rgb(242, 255, 242);
+    border-radius: 5px;
+}
+
+#img-view, #imgResult-view{
     width: 100%;
     height: 100%;            
     display: flex;          
@@ -105,8 +112,12 @@
     height: auto;
 }
 
-.form-control::placeholder {
+.form-control::placeholder, .holder, select:invalid {
     color:#afadad;
+}
+
+#form-missing label {
+    margin-right: 4px;
 }
 
 .requiredStart {
@@ -118,6 +129,40 @@
     margin-bottom: 15px;
     color: rgb(230, 24, 24);
     text-align: center;
+}
+
+.percent-container{
+    position: relative;
+}
+
+.percent {
+    position: relative;
+    margin: 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.percent_circle{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(
+        rgb(4, 190, 4) calc(var(--percent) * 1%),
+        rgba(0,0,0,0.1) 0
+    );
+    z-index: 1;
+}
+
+.percent_circle::after {
+    content: "";
+    position: absolute;
+    inset: 10px;        
+    background: rgb(253, 251, 251); 
+    border-radius: 50%;
 }
 
 @media only screen and (max-width: 600px) {
