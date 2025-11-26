@@ -3,11 +3,50 @@
 {% block title %}Upload Missing Person{% endblock %}
 
 {% block content %}
-<div class="container mt-0 text-center" id="upload-page">
+<!-- Instructions Modal -->
+<div class="modal fade" id="instructions" tabindex="-1" aria-labelledby="instructionsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">تعليمات عن صورة الشخص المفقود</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>اختر صورة واضحة للوجه، يفضل ان يكون الوجه في اتجاه الامام لا الجانب
+              <img src="static/images/faces1.jpg" alt="instruction face" class="img-fluid">
+            </li>            
+            <li>
+              تأكد ان الوجه ظاهر بالكامل دون اي نقص، وانه خال من اي عناصر قد تخفي الملامح مثل النظارات الشمسية او الكمامات
+              <img src="static/images/faces2.jpg" alt="instruction face" class="img-fluid">
+            </li>
+            <li>
+              تجنب الصور المظلمة جد او الساطعة جدا التي تخفي ملامح الوجه
+              <img src="static/images/faces3.jpg" alt="instruction face" class="img-fluid">
+            </li>
+            <li>
+              اختر صورة بجودة عالية، وتجنب الصور ذات  الجودة المنخفضة جدا. كما تجنب ايضا الصور التي تحتوي على فلاتر تغير ملامح الشخص
+              <img src="static/images/faces4.jpg" alt="instruction face" class="img-fluid">
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--Container-->
+<div class="container-lg mt-4 text-center" id="upload-page">
+  <p>
+    قبل رفع الصورة الرجاء قراءة التعليمات 
+    <span data-bs-toggle="modal" data-bs-target="#instructions" id="instruction_link">التالية</span>
+  </p>
+  <!-- Row -->
   <div class="row g-5 m-1 justify-content-around">
     <!-- Column 1 (Main)-->
-    <div class="col-11 col-lg-5 p-0 rounded shadow mt-5">
-      <div class="p-2 title">ادخل بيانات  المفقود</div>
+    <div class="col-11 col-md-5 p-2 rounded shadow mt-0">
+      <div class="p-2 title">ادخل بيانات الشخص المفقود</div>
       <form method="POST" class="row g-0 justify-content-center" id="form-missing" novalidate>
           <!--image preview-->
           <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
@@ -25,11 +64,11 @@
               <div class="row g-1">
                 <div class="col-9">
                   <label for="name" class="me-2">الاسم<span class="requiredStart">*</span></label>
-                  <input type="text" name="name" id="name" class="form-control mb-1" placeholder="مثال: احمد محد" required>
+                  <input type="text" name="name" id="name" class="form-control mb-1" placeholder="مثال: احمد محمد" required>
                 </div>
                 <div class="col-3">
                   <label for="age" class="me-2">العمر</label>
-                  <input type="number" name="age" id="age" min="0" max="150" class="form-control mb-1" placeholder="مثال: 30">
+                  <input type="number" name="age" id="age" min="0" max="150" class="form-control mb-1" placeholder="30">
                 </div>
               </div>
               <label for="lastSeen" class="me-2 mb-1">اخر مكان شوهد فيه</label>
@@ -40,18 +79,18 @@
               <input type="text" name="phoneNum2" id="phoneNum2" class="form-control mb-2" pattern="^\+?[0-9]{8,15}$" placeholder="مثال: 249xxxxxxxxx+">
           </div>
           <!--error message-->
-          <div role="alert" id="errorMessage" hidden>
-            الرجاء ملء جميع الحقول المطلوبة بشكل صحيح
+          <div class="col-11" role="alert" id="errorMessage" hidden>
+            الرجاء ملء جميع الحقول المطلوبة
           </div>
           <!--submit-->
           <div class="col-12 d-grid">
-             <button class="btn btn-success send-btn m-3" type="submit">ارسال</button>
+             <button class="btn btn-success send-btn ms-2 me-2 mb-3" type="submit">ارسال</button>
           </div>
       </form>
     </div>  
 
     <!-- Column 2 (Result)-->
-    <div class="col-11 col-lg-5 rounded shadow bg-body-tertiary">      
+    <div class="col-11 col-md-5 rounded shadow bg-body-tertiary" hidden>      
       <div class="p-3 border">Column 2</div>
     </div>
   </div>

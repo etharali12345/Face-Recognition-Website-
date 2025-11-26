@@ -34,9 +34,11 @@ def sign_up():
 def upload_missing():
     if request.method == "POST":
         image = request.files.get("image")
-        if not image:
-            pass
-        image.save("static/uploads/" + image.filename)
+        if image:
+            image.save("static/uploads/" + image.filename)
+            return "Image uploaded successfully!" 
+        else:
+            return "No image uploaded.", 400
 
     else:
         return render_template('upload_user.html')

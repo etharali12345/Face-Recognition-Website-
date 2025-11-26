@@ -68,10 +68,17 @@
 }
 
 /*upload image*/
+#instruction_link{
+    cursor: pointer;
+    color: rgb(56, 56, 190);
+    text-decoration: underline;
+}
+
 .title {
     font-weight: bold;
     font-size: 1.1rem;
 }
+
 #drop-area {
     width:80%;
     height:200px;
@@ -107,7 +114,8 @@
 }
 
 #errorMessage {
-    margin-top: 15px;
+    margin-top: 0px;
+    margin-bottom: 15px;
     color: rgb(230, 24, 24);
     text-align: center;
 }
