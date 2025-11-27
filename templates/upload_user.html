@@ -43,7 +43,7 @@
     <span data-bs-toggle="modal" data-bs-target="#instructions" id="instruction_link">التالية</span>
   </p>
   <!-- Row Whole page-->
-  <div class="row justify-content-center align-items-start">
+  <div class="row justify-content-center align-items-strech">
 
     <!-- Column 1 (Main Missing)-->
     <div class="col-11 col-md-5 ms-md-5 p-2 rounded shadow">
@@ -117,7 +117,7 @@
     </div>  
 
     <!-- Column 2 (Result)-->
-    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0" id="result-column"> 
+    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0" id="result-column" > 
       <!-- Percent -->     
       <div class="p-2 title percent-container">
         <p class="percent">90%</p>
@@ -126,16 +126,45 @@
       <!-- row-->
       <div class="row g-0 justify-content-center">
         <!-- result image Column-->
-        <div class="col-11 p-1 d-flex flex-column align-items-center justify-content-center">
+        <div class="col-11 p-1 d-flex justify-content-center">
           <div id="drop-result">
-              <div id="imgResult-view" style="background-image: url('static/uploads/hostage2.jpg');">
+              <div id="imgResult-view" style="background-image: url('static/uploads/hostage2.jpg');"></div>
           </div>
         </div>
         <!-- result detail Column-->
         <div class="col-11 text-end">
-          <p>الاسم</p>
-          <p>الاسم</p>
-          <p>العمر</p>
+          <p class="result-info">النتيجة: <span id="result-match">تطابق</span></p>
+          <p class="result-info mb-1">بنسبة: <span id="result-percent">90%</span></p> 
+          <p class="result-lable">الاسم</p>
+          <p class="readonly-input">محمد احمد ابراهيم</p>
+          <div class="row">
+            <div class="col-6">
+              <p class="result-lable">العمر التقريبي</p>
+              <p class="readonly-input">40</p>
+            </div>
+            <div class="col-6">
+              <p class="result-lable">الجنس</p>
+              <p class="readonly-input">ذكر</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <p class="result-lable">الحالة</p>
+              <p class="readonly-input">سليم</p>
+            </div>
+            <div class="col-6">
+              <p class="result-lable">تاريخ العثور</p>
+              <p class="readonly-input">2025/6/6</p>
+            </div>
+          </div>
+
+
+          <p class="result-lable">جهة العثور</p>
+          <p  class="readonly-input">منظمة الهلال الاحمر فرع الشمالية</p>
+          <p class="result-lable">مكان العثور</p>
+          <p  class="readonly-input">الشمالية - وادي سيدنا</p>
+          <p class="result-lable">للتواصل مع الجهة</p>
+          <p  class="readonly-input">024965465656 او 02496564646 </p>
         </div>
       </div>
     </div>

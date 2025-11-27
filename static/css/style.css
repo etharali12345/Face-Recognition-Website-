@@ -74,6 +74,10 @@
     text-decoration: underline;
 }
 
+.modal-content {
+    height: 90vh;
+}
+
 .title {
     font-weight: bold;
     font-size: 1.1rem;
@@ -90,8 +94,8 @@
 #drop-result {
     width:80%;
     height:200px;
-    background-color: rgb(242, 255, 242);
     border-radius: 5px;
+    background-color: rgb(242, 255, 242);
 }
 
 #img-view, #imgResult-view{
@@ -130,9 +134,9 @@
 }
 
 #errorMessage {
-    margin-top: 0px;
-    margin-bottom: 15px;
-    color: rgb(230, 24, 24);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: rgb(214, 30, 30);
     text-align: center;
 }
 
@@ -170,6 +174,23 @@
     border-radius: 50%;
 }
 
+.result-info{
+    font-size: 1.06rem;
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.result-lable {
+    margin-bottom: 3px;
+}
+
+.readonly-input{
+    margin-bottom: 5px;
+    color:#979696;
+    border-bottom: 1px solid #e7eaec;
+}
+
 @media only screen and (max-width: 600px) {
     html {
         font-size: 15px;
@@ -202,7 +223,7 @@
     }
 
     /*upload*/
-    #form-missing label {
+    #form-missing label, .result-lable {
         font-weight: bold;
     }
 

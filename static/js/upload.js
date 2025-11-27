@@ -25,6 +25,8 @@ let data = {
     contact: "+201234567890"
 };
 
+//if not valid send message
+
 let percent_counter = 0;
 
 const interval = setInterval(() => {
