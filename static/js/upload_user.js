@@ -19,6 +19,8 @@ const resultEntity = document.getElementById("result-findingEntity");
 const resultPlace = document.getElementById("result-place");
 const resultContact = document.getElementById("result-contact");
 
+const noResultColumn = document.getElementById("noResult-column");
+
 //result data (to be replaced with server response)
 // if the sent form is not valid, the server will not respond with valid false and message 
 let data = {
@@ -58,14 +60,20 @@ formMissing.addEventListener("submit", async (event) => {
         });
         //change data2 to data1
         const data2 = await response.json();   
-
-        if(data.valid && data.match){
-            showResult(data);
-        }     
+        if(data.valid) {
+            if(data.match){
+                showMatch(data);
+            } else {
+                showNoMatch();
+            }
+        } else {
+            errorMessage.hidden = false;
+            errorMessage.textContent = "should be data.message error message from server";
+        }   
     }
 });
 
-function showResult(data){
+function showMatch(data){
     resultColumn.hidden = false;
     const offset = 25; 
     let scrollTop = resultColumn.getBoundingClientRect().top + window.scrollY;
@@ -97,4 +105,18 @@ function showResult(data){
         circle.style.setProperty('--percent', percent_counter);
         if (percent_counter >= data.percent) clearInterval(interval);
     }, 20);
+}
+
+function showNoMatch(){
+    noResultColumn.hidden = false;
+    let offset = 25;
+    let scrollTop = noResultColumn.getBoundingClientRect().top + window.scrollY ;
+    if (window.innerWidth > 700) {
+        scrollTop -= offset;
+    }
+    
+    window.scrollTo({
+        top: scrollTop,
+        behavior: "smooth"
+    });
 }

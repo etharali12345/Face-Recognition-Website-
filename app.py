@@ -39,17 +39,12 @@ def upload_missing():
             return jsonify({'match': True})
         else:
             return jsonify({'match': False})
-
     else:
         return render_template('upload_user.html')
 
-
-@app.route('/api/data', methods=['POST'])
-def get_data():
-    data = request.get_json()
-    user_input = data.get('input')
-    result = f"Received: {user_input}"
-    return jsonify({'message': result})
+@app.route('/my_uploads')
+def my_uploades():
+    return render_template('my_uploads_user.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

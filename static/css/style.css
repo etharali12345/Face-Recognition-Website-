@@ -191,6 +191,11 @@
     border-bottom: 1px solid #e7eaec;
 }
 
+#noResult-column {
+    background-color: rgb(255, 250, 250);
+    border: 2px solid rgb(255, 150, 150);
+}
+
 @media only screen and (max-width: 600px) {
     html {
         font-size: 15px;
