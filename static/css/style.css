@@ -275,4 +275,9 @@ body:has(#my-uploads-row){
     #img-view img{
         width:15%;
     }
+
+    /*missing list*/
+    #my-uploads-row {
+        box-shadow: 0px 2px 8px rgba(119, 119, 119, 0.363);
+    }
 }
