@@ -219,7 +219,7 @@ body:has(#my-uploads-row){
 
 #my-uploads-row, .uploaded-pepole-text{
     background-color: white;
-    box-shadow: 1px 2px 5px rgba(167, 167, 167, 0.185);
+    box-shadow: 0px 2px 5px rgba(167, 167, 167, 0.274);
 }
 
 #my-uploads-row .card {
