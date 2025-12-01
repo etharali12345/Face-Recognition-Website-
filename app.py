@@ -39,7 +39,6 @@ def user():
     global login
     if login == True:
         user = {
-            "logged_in": True,
             "role": "user"
         }
         return jsonify(user)

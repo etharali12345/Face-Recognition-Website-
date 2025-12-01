@@ -2,33 +2,26 @@ const loginBtn = document.getElementById("login-mainBtn");
 
 /*
 user = {
-  "logged_in": True,
   "role": "user"
 }
 */
 
-async function loadUserRole() {
-  const response = await fetch("/api/current_user");
-  const user = await response.json();
-  if (user.logged_in) {
-    if (user.role === "admin") admin_setup();
-    else if (user.role === "user") user_setup();
+function setupUI(user){
+  if(user.role === "admin"){
+    document.querySelectorAll(".admin-nav").forEach(item => item.hidden = false );
+  } else if(user.role === "user"){
+    document.querySelectorAll(".user-nav").forEach(item => item.hidden = false);
+  } 
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userData = sessionStorage.getItem("user");
+
+  if(userData){
+    const user = JSON.parse(userData);
+    setupUI(user);
   } else {
-    document.querySelector(".no-sign").hidden = false;
+    loginBtn.hidden = false;
   }
-}
-
-function admin_setup(){
-  document.querySelectorAll(".admin-nav").forEach(item =>
-  item.hidden = false );
-  loginBtn.hidden = true;
-}
-
-function user_setup(){
-  document.querySelectorAll(".user-nav").forEach(item =>
-  item.hidden = false);
-  loginBtn.hidden = true;
-}
-
-
-loadUserRole();
+});

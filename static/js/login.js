@@ -20,8 +20,17 @@ loginForm.addEventListener("submit", async function(event) {
         });
         
         const data = await response.json();
-        if (data.valid)  window.location.href = data.redirect;
-        else invalidUser.hidden = false;
+        if (data.valid) {
+            // fetch user info once after successful login, for (role based) and store in session for faster result
+            // user {role "user" or "admin"}
+            const userRes = await fetch("/api/current_user");
+            const user = await userRes.json();
+            sessionStorage.setItem("user", JSON.stringify(user));
+
+            window.location.href = data.redirect;
+        } else {
+            invalidUser.hidden = false;
+        }
     }
 });
 
