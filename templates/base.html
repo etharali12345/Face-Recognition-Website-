@@ -32,29 +32,29 @@
               <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">الرئسية</a>
             </li>
             <li class="nav-item login-btn no-sign" id="login-mainBtn" hidden>
-              <a href="/login" class="btn btn-success {% if request.path == '/login' %} disabled {% endif %}" id="use_nav">تسجيل الدخول</a>
+              <a href="/login" class="btn btn-success" id="use_nav">تسجيل الدخول</a>
             </li>
             <!--admin-->
             <li class="nav-item admin-nav" hidden>
               <a href="/upload_missing" class="nav-link {% if request.path == '/upload_admin' %}active{% endif %}">رفع الصور</a>
             </li>
             <li class="nav-item admin-nav" hidden>
-              <a href="/admin_missin_db" class="nav-link">الصور المرفوعة</a>
+              <a href="/admin_missin_db" class="nav-link">رفع بلاغ مفقود</a>
             </li>
             <li class="nav-item admin-nav" hidden>
-              <a href="/admin_founded_db" class="nav-link">بيانات المفقودين</a>
+              <a href="/admin_founded_db" class="nav-link">مفقودين </a>
             </li>
-            <li class="nav-item admin-nav login-btn" hidden>
+            <li class="nav-item admin-nav login-btn" hidden>  
               <a href="/login" class="btn btn-success">
                 <img src="/static/images/user.png" class="user-img" alt="حسابي">  
               </a>
             </li>
             <!--user-->
             <li class="nav-item user-nav" hidden>
-              <a href="/upload_missing" class="nav-link {% if request.path == '/upload_missing' %} active {% endif %}" >رفع الصور</a>
+              <a href="/upload_missing" class="nav-link {% if request.path == '/upload_missing' %} active {% endif %}" >رفع بلاغ مفقود</a>
             </li>
             <li class="nav-item user-nav" hidden>
-              <a href="/my_uploads" class="nav-link {% if request.path == '/my_uploads' %} active {% endif %}">بيانات تم رفعها</a>
+              <a href="/my_uploads" class="nav-link {% if request.path == '/my_uploads' %} active {% endif %}"> مفقودين أضفتهم</a>
             </li>
             <li class="nav-item user-nav login-btn" hidden>
               <a href="/login" class="btn btn-success">

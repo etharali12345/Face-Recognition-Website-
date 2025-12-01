@@ -28,20 +28,18 @@ function showUploads(data){
     uploadsRow.innerHTML = "";
     data.forEach(person => {
         const card = document.createElement("div")
-        card.classList.add("card", "shadow", "border-0", "p-0");
-        card.style.setProperty("width", "16rem");
+        card.classList.add("card", "border-0", "p-0");
         
-        let statusBtn;
-
         card.innerHTML =
-            `<img src="${person.image_url}" class="card-img-top" alt="uploaded person" style="height:180px; object-fit:cover">
+            `<img src="${person.image_url}" class="card-img-top" alt="uploaded person" style="height:150px; object-fit:cover">
             <div class="card-body text-center">
-                <h5 class="card-title">${person.name}</h5>
+                <h6 class="card-title">${person.name}</h6>
                 <div class="${person.match === true? 'btn-match' : 'btn-noMatch' } rounded mb-2" > 
                     الحالة: ${person.match === true?' تطابق':'لا تطابق'} 
                 </div>
                 <div class="d-grid">
-                    <button onclick=deletePerson(${person.person_id}) class="btn btn-danger">حذف</button>
+                    <button onclick=deletePerson(${person.person_id}) class="btn btn-danger">
+                    حذف</button>
                 </div>
             </div>`
         uploadsRow.appendChild(card);

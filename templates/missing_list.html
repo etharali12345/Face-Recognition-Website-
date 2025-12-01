@@ -15,17 +15,18 @@
         هل انت متاكد انك تريد حذف هذا الشخص؟
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+        <button id="confirmDeleteBtn" type="button" class="btn btn-danger">حذف</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-xl mt-5 mb-5">
-    <div class="row gap-5 d-flex justify-content-center" id="my-uploads-row">
+<div class="container-xl mt-3 mb-5">
+    <div class="uploaded-pepole-text d-flex mb-3 p-3 rounded  title"> قائمة المفقودين الذين قمت بإضافتهم</div>
+    <div class="row gap-5 d-flex justify-content-center rounded m-0 p-5" id="my-uploads-row">
     </div>
 </div>
 
-<script src="static/js/my_uploads_user.js"></script>
+<script src="static/js/missing_list.js"></script>
 {% endblock %}

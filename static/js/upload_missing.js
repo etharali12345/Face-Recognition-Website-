@@ -1,3 +1,4 @@
+const uploadMissingColumn = document.getElementById("upload-missing-column");
 const formMissing = document.getElementById("form-missing")
 const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-image");
@@ -20,7 +21,7 @@ const noResultColumn = document.getElementById("noResult-column");
 
 //result data (to be replaced with server response)
 // if the sent form is not valid, the server will not respond with valid false and message 
-let data = {
+let data2 = {
     valid: true,
     match: true,
     image_url: 'static/uploads/hostage1.jpg',
@@ -36,11 +37,13 @@ let data = {
     contact2: "0024965465656"
 };
 
-inputFile.addEventListener('change', function (){
-    let img = inputFile.files[0];
-    let imgLink = URL.createObjectURL(img);
-    imgView.style.backgroundImage = `url(${imgLink})`
-    imgView.textContent = "";   
+inputFile.addEventListener('change', function() {
+    if (inputFile.files && inputFile.files[0]) {
+        const img = inputFile.files[0];
+        const imgLink = URL.createObjectURL(img);
+        imgView.style.backgroundImage = `url(${imgLink})`;
+        imgView.textContent = "";
+    }
 });
 
 formMissing.addEventListener("submit", async (event) => {
@@ -58,10 +61,10 @@ formMissing.addEventListener("submit", async (event) => {
         });
 
         //change data2 to data since the one is gonna be used
-        const data2 = await response.json();   
-        if(data.valid) {
+        const data = await response.json();   
+        if(data2.valid) {
             if(data.match){
-                showMatch(data);
+                showMatch(data2);
             } else {
                 showNoMatch();
             }
@@ -74,6 +77,7 @@ formMissing.addEventListener("submit", async (event) => {
 
 function showMatch(data){
     resultColumn.hidden = false;
+    uploadMissingColumn.classList.add("ms-md-5");
     const offset = 25; 
     let scrollTop = resultColumn.getBoundingClientRect().top + window.scrollY;
 
@@ -107,7 +111,10 @@ function showMatch(data){
 }
 
 function showNoMatch(){
+    resultColumn.hidden = true;
+    uploadMissingColumn.hidden = true
     noResultColumn.hidden = false;
+    
     let offset = 25;
     let scrollTop = noResultColumn.getBoundingClientRect().top + window.scrollY ;
     if (window.innerWidth > 700) {

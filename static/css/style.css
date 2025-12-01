@@ -196,6 +196,11 @@
     border: 2px solid rgb(255, 150, 150);
 }
 
+.noResult-img img {
+    max-width: 200px;
+    height: auto;
+}
+
 /*m_uplaods*/
 #confirmDeleteModal .modal-content {
     height: auto !important;
@@ -203,11 +208,23 @@
 
 .btn-match {
     color: rgb(1, 214, 72);
-
 }
 
 .btn-noMatch {
     color: rgb(230, 0, 0);
+}
+body:has(#my-uploads-row){
+    background-color: #fafafa;
+}
+
+#my-uploads-row, .uploaded-pepole-text{
+    background-color: white;
+    box-shadow: 1px 2px 5px rgba(167, 167, 167, 0.185);
+}
+
+#my-uploads-row .card {
+    box-shadow: 1px 2px 5px rgba(167, 167, 167, 0.315);
+    width: 14rem;
 }
 
 @media only screen and (max-width: 600px) {

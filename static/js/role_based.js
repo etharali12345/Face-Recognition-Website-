@@ -1,20 +1,21 @@
 const loginBtn = document.getElementById("login-mainBtn");
 
-/*async function loadUserRole() {
-  const res = await fetch("/api/current_user");
-  const user = await res.json();
-}*/
-
-let user = {
-  logged_in: true,
-  role: "user"
+/*
+user = {
+  "logged_in": True,
+  "role": "user"
 }
+*/
 
-if (user.logged_in) {
-  if (user.role === "admin") admin_setup();
-  else if (user.role === "user") user_setup();
-} else {
-  document.querySelector(".no-sign").hidden = false;
+async function loadUserRole() {
+  const response = await fetch("/api/current_user");
+  const user = await response.json();
+  if (user.logged_in) {
+    if (user.role === "admin") admin_setup();
+    else if (user.role === "user") user_setup();
+  } else {
+    document.querySelector(".no-sign").hidden = false;
+  }
 }
 
 function admin_setup(){
@@ -28,3 +29,6 @@ function user_setup(){
   item.hidden = false);
   loginBtn.hidden = true;
 }
+
+
+loadUserRole();

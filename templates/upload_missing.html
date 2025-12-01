@@ -46,7 +46,7 @@
   <div class="row justify-content-center align-items-strech">
 
     <!-- Column 1 (Main Missing)-->
-    <div class="col-11 col-md-5 ms-md-5 p-2 rounded shadow">
+    <div class="col-11 col-md-5 p-2 rounded shadow" id="upload-missing-column">
       <div class="p-2 title">
         <p>ادخل بيانات الشخص المفقود</p>
       </div>
@@ -168,19 +168,19 @@
     </div>
 
     <!-- Column 3 ( No Result)-->
-    <div class="col-11 col-md-5 me-md-5 p-2 rounded shadow mt-5 mt-md-0 align-self-center" id="noResult-column" hidden>
-      <div class="p-2 title">
-        <p>عذراً، لا توجد نتائج مطابقة في قاعدة البيانات</p>
+    <div class="col-11 col-md-5 p-2 rounded shadow mt-5 mt-md-0 align-self-center" id="noResult-column" hidden>
+      <div class="p-3 h4">
+        لا يوجد تطابق
       </div>
-      <div class="row g-0 justify-content-center">
+      <div class="row g-3 justify-content-center">
         <!-- no result image Column-->
         <div class="col-7 d-flex justify-content-center noResult-img">
-          <img src="static/images/x-mark1.png" alt="no result icon" class="img-fluid">
+          <img src="static/images/sadFace2.jpg" alt="no result icon" class="img-fluid">
         </div>
         <!-- no result detail Column-->
         <div class="col-11">
-          <p class="noresult-info">لم يتم العثور على أي تطابقات في قاعدة البيانات الخاصة بنا بناءً على الصورة المرفوعة.</p>
-          <p class="noresult-info">في حالة وجود تطابق مستقبلا سيتم تغيير الحالة و التواصل معك من الجهة المختصة</p>
+          <p class="m-0">لم يتم العثور على أي شخص مطابق للصورة التي رفعتها</p>
+          <p>إذا تم العثور على تطابق لاحقا، سيتم تحديث الحالة وستقوم الجهة المختصة بالتواصل معك</p>
         </div>
       </div>
     </div>
@@ -193,6 +193,6 @@
 
 </div>
 
-<script src="static/js/upload_user.js"></script>
+<script src="static/js/upload_missing.js"></script>
 {% endblock %}
 احتياطي
