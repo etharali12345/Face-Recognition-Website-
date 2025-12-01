@@ -13,6 +13,8 @@ let user = {
 if (user.logged_in) {
   if (user.role === "admin") admin_setup();
   else if (user.role === "user") user_setup();
+} else {
+  document.querySelector(".no-sign").hidden = false;
 }
 
 function admin_setup(){

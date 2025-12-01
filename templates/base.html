@@ -31,7 +31,7 @@
             <li class="nav-item">
               <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">الرئسية</a>
             </li>
-            <li class="nav-item login-btn" id="login-mainBtn">
+            <li class="nav-item login-btn no-sign" id="login-mainBtn" hidden>
               <a href="/login" class="btn btn-success {% if request.path == '/login' %} disabled {% endif %}" id="use_nav">تسجيل الدخول</a>
             </li>
             <!--admin-->

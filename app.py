@@ -46,5 +46,24 @@ def upload_missing():
 def my_uploades():
     return render_template('my_uploads_user.html')
 
+@app.route('/api/user_uploads')
+def user_upload():
+    uploads = [
+        {
+            "person_id": 12,
+            "name": "احمد محمد احمد",
+            "image_url": "static/uploads/hostage1.jpg",
+            "match": False,
+            "match_percentage": 89
+        },
+        {
+            "person_id": 21,
+            "name": "خالد مزمل محمد",
+            "image_url": "static/uploads/hostage2.jpg",
+            "match": True
+        }
+    ]
+    return jsonify(uploads)
+
 if __name__ == '__main__':
     app.run(debug=True)

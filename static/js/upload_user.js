@@ -3,10 +3,8 @@ const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-image");
 const imgView = document.getElementById("img-view");
 const errorMessage = document.getElementById("errorMessage");
-
 const resultColumn = document.getElementById("result-column");
 const circle = document.querySelector('.percent_circle');
-
 const percentHead = document.querySelector('.percent-head');
 const resultImage = document.getElementById("result-image");
 const resultPercent = document.getElementById("result-percent");
@@ -18,7 +16,6 @@ const resultDateOfFounding = document.getElementById("result-dateOfFounding");
 const resultEntity = document.getElementById("result-findingEntity");
 const resultPlace = document.getElementById("result-place");
 const resultContact = document.getElementById("result-contact");
-
 const noResultColumn = document.getElementById("noResult-column");
 
 //result data (to be replaced with server response)
@@ -26,7 +23,7 @@ const noResultColumn = document.getElementById("noResult-column");
 let data = {
     valid: true,
     match: true,
-    image_path: 'static/uploads/hostage1.jpg',
+    image_url: 'static/uploads/hostage1.jpg',
     percent: 70,
     name: "احمد محمد احمد",
     age: 35,
@@ -54,11 +51,13 @@ formMissing.addEventListener("submit", async (event) => {
     } else {
         errorMessage.hidden = true;
         const formData = new FormData(formMissing);
+        //POST method for the same page route
         const response = await fetch('/upload_missing', {
             method: 'POST',
             body: formData
         });
-        //change data2 to data1
+
+        //change data2 to data since the one is gonna be used
         const data2 = await response.json();   
         if(data.valid) {
             if(data.match){
@@ -88,7 +87,7 @@ function showMatch(data){
     });
 
     percentHead.textContent = data.percent + "%";
-    resultImage.style.backgroundImage = `url(${data.image_path})`;
+    resultImage.style.backgroundImage = `url(${data.image_url})`;
     resultName.textContent = data.name;
     resultAge.textContent = data.age;
     resultSex.textContent = data.sex;

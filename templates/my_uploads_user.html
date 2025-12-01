@@ -4,4 +4,28 @@
 
 {% block content %}
 
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"> تاكيد الحذف</h4>
+      </div>   
+      <div class="modal-body">
+        هل انت متاكد انك تريد حذف هذا الشخص؟
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xl mt-5 mb-5">
+    <div class="row gap-5 d-flex justify-content-center" id="my-uploads-row">
+    </div>
+</div>
+
+<script src="static/js/my_uploads_user.js"></script>
 {% endblock %}

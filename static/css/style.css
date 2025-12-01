@@ -196,6 +196,20 @@
     border: 2px solid rgb(255, 150, 150);
 }
 
+/*m_uplaods*/
+#confirmDeleteModal .modal-content {
+    height: auto !important;
+}
+
+.btn-match {
+    color: rgb(1, 214, 72);
+
+}
+
+.btn-noMatch {
+    color: rgb(230, 0, 0);
+}
+
 @media only screen and (max-width: 600px) {
     html {
         font-size: 15px;
