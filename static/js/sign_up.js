@@ -7,10 +7,6 @@ const passwordImgBox = document.getElementById('passwordImg-box');
 
 const error_message = document.getElementById("errorMessage");
 
-//respond:
-//{"valid": True, "redirect": url_for("home")}
-//{"valid": False, "message": "Error message here"}
-
 signUpForm.addEventListener('submit', async function(event) {
     event.preventDefault();
 

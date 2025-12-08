@@ -45,7 +45,9 @@ formMissing.addEventListener("submit", async (event) => {
         const data = await response.json();   
         if(data.valid) {
             if(data.match){
-                showMatch(data);
+                const matchResponse = await fetch(`/api/get_match/${data.match_id}`);
+                const matchData = await matchResponse.json();
+                showMatch(matchData);
             } else {
                 showNoMatch();
             }

@@ -1,10 +1,6 @@
 const loginForm = document.getElementById("LoginForm");
 const invalidUser = document.getElementById("userInvalid");
 
-//respond:
-//{"valid": True, "redirect": url_for("home")}
-//{"valid": False}
-
 loginForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 

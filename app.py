@@ -6,7 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template('home.html') 
 
-#1st
 #login
 #POST => 1- emailOrPhone 2-password
 @app.route('/login', methods=["POST", "GET"])
@@ -20,17 +19,22 @@ def login_fun():
             data = {
                 "valid": True, 
                 "user": {
-                    "role": "user"
+                    "role": "admin"
                 },
                 "redirect": url_for('index')
             }
             return jsonify(data)
         else:
-            return jsonify({"valid": False})
+            #JSON 
+            data = {
+                'valid': False
+            }
+            return jsonify(data)
     else:
         return render_template('login.html')
 
 
+#POST => 1-fname 2-lname 3-emailOrPhone 4-password
 @app.route('/sign_up', methods=["POST", "GET"])
 def sign_up():
     if request.method == "POST":
@@ -70,17 +74,7 @@ def upload_missing():
                 data = {
                     'valid': True,
                     'match': True,
-                    'image_url': 'static/uploads/hostage1.jpg',
-                    'percent': 70,
-                    'name': "احمد محمد احمد",
-                    'age': 35,
-                    'sex': "ذكر",
-                    'condition': "سليم",
-                    'dateOfFounding': "2025/12/12",   
-                    'findingEntity': "منظمة الهلال الاحمر فرع الشمالية",
-                    'location': "الشمالية - وادي حلفا",
-                    'contact': "002496564646",
-                    'contact2': "0024965465656"
+                    'match_id': 243254354,
                 }
                 return jsonify(data)
             else:
@@ -126,6 +120,7 @@ def user_upload():
     ]
     return jsonify(uploads)
 
+#match_id in the URL
 @app.route('/api/get_match/<int:match_id>')
 def get_missing_match(match_id):
     match = {
@@ -141,6 +136,7 @@ def get_missing_match(match_id):
         'contact': "002496564646",
         'contact2': "0024965465656"
     }
+
     return jsonify(match)
 
 

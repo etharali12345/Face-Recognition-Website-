@@ -58,7 +58,6 @@ document.getElementById("confirmDeleteBtn").addEventListener("click", async func
     //}
 });
 
-
 async function showMatchDetails(matchId) {
     if (!matchId) return; 
     console.log(`/api/get_match/${matchId}`)
