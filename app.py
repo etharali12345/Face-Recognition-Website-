@@ -88,7 +88,7 @@ def upload_missing():
             #JSON
             data = {
                 'valid': False,
-                'message': 'يةجد العديد من الاضخاث في الصورة'
+                'message': 'يوجد العديد من الاشخاص في الصورة'
             }
             return jsonify(data)
     else:
@@ -123,6 +123,7 @@ def user_upload():
 #match_id in the URL
 @app.route('/api/get_match/<int:match_id>')
 def get_missing_match(match_id):
+    #JSON
     match = {
         'image_url': 'static/uploads/hostage1.jpg',
         'percent': 70,
