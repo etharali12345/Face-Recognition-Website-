@@ -19,24 +19,6 @@ const resultPlace = document.getElementById("result-place");
 const resultContact = document.getElementById("result-contact");
 const noResultColumn = document.getElementById("noResult-column");
 
-//result data (to be replaced with server response)
-// if the sent form is not valid, the server will not respond with valid false and message 
-let data2 = {
-    valid: true,
-    match: true,
-    image_url: 'static/uploads/hostage1.jpg',
-    percent: 70,
-    name: "احمد محمد احمد",
-    age: 35,
-    sex: "ذكر",
-    condition: "سليم",
-    dateOfFounding: "2025/12/12",   
-    findingEntity: "منظمة الهلال الاحمر فرع الشمالية",
-    location: "الشمالية - وادي حلفا",
-    contact: "002496564646",
-    contact2: "0024965465656"
-};
-
 inputFile.addEventListener('change', function() {
     if (inputFile.files && inputFile.files[0]) {
         const img = inputFile.files[0];
@@ -60,17 +42,16 @@ formMissing.addEventListener("submit", async (event) => {
             body: formData
         });
 
-        //change data2 to data since the one is gonna be used
         const data = await response.json();   
-        if(data2.valid) {
+        if(data.valid) {
             if(data.match){
-                showMatch(data2);
+                showMatch(data);
             } else {
                 showNoMatch();
             }
         } else {
             errorMessage.hidden = false;
-            errorMessage.textContent = "should be data.message error message from server";
+            errorMessage.textContent = data.message;
         }   
     }
 });

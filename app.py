@@ -1,13 +1,14 @@
-# app.py
 from flask import Flask, render_template, request, jsonify, url_for
 
 app = Flask(__name__)
-login = False
 
 @app.route('/')
 def index():
     return render_template('home.html') 
 
+#1st
+#login
+#POST => 1- emailOrPhone 2-password
 @app.route('/login', methods=["POST", "GET"])
 def login_fun():
     global login
@@ -15,40 +16,48 @@ def login_fun():
         username = request.form.get("emailOrPhone")
         password = request.form.get("password")
         if username == "0123456789" and password == "123":
-            login = True
-            return jsonify({"valid": True, "redirect": url_for('index')})
+            #JSON
+            data = {
+                "valid": True, 
+                "user": {
+                    "role": "user"
+                },
+                "redirect": url_for('index')
+            }
+            return jsonify(data)
         else:
             return jsonify({"valid": False})
     else:
         return render_template('login.html')
+
 
 @app.route('/sign_up', methods=["POST", "GET"])
 def sign_up():
     if request.method == "POST":
         username = "000"
         if username == "0123456789":
-            return jsonify({"valid": True, "redirect": url_for('index')})
+            #JSON
+            data = {
+                "valid": True, 
+                "user": {
+                    "role": "user"
+                },
+                "redirect": url_for('index')
+            }
+            return jsonify(data)
         else:
-            return jsonify({"valid": False, "message": "هذا المستخدم موجود مسبقا"})
+            #JSON
+            data = {
+                'valid': False,
+                'message': 'هذا المستخدم موجود مسبقا'
+            }
+            return jsonify(data)
     else:
         return render_template('sign_up.html')
     
 
-@app.route('/api/current_user')
-def user():
-    global login
-    if login == True:
-        user = {
-            "role": "user"
-        }
-        return jsonify(user)
-    else:
-        user = {
-            "logged_in": False,
-        }
-        return jsonify(user)
-
-
+#3rd upload missing 
+#POST => 1-image 2-name 3-age 4-gender 5-lastSeenDate 6-lastSeenLocation 7-phoneNum1 8-phoneNum2 
 @app.route('/upload_missing', methods=["POST", "GET"])
 def upload_missing():
     if request.method == "POST":
@@ -57,11 +66,37 @@ def upload_missing():
         if image:
             image.save("static/uploads/" + image.filename)
             if phone == '0123456789':
-                return jsonify({'match': True})
+                #JSON
+                data = {
+                    'valid': True,
+                    'match': True,
+                    'image_url': 'static/uploads/hostage1.jpg',
+                    'percent': 70,
+                    'name': "احمد محمد احمد",
+                    'age': 35,
+                    'sex': "ذكر",
+                    'condition': "سليم",
+                    'dateOfFounding': "2025/12/12",   
+                    'findingEntity': "منظمة الهلال الاحمر فرع الشمالية",
+                    'location': "الشمالية - وادي حلفا",
+                    'contact': "002496564646",
+                    'contact2': "0024965465656"
+                }
+                return jsonify(data)
             else:
-                return jsonify({'match': False})
+                #JSON
+                data = {
+                    'valid': True,
+                    'match': False
+                }
+                return jsonify(data)
         else:
-            return jsonify({'match': False})
+            #JSON
+            data = {
+                'valid': False,
+                'message': 'يةجد العديد من الاضخاث في الصورة'
+            }
+            return jsonify(data)
     else:
         return render_template('upload_missing.html')
 
@@ -71,16 +106,18 @@ def my_uploades():
 
 @app.route('/api/user_uploads')
 def user_upload():
+    #JSON
     uploads = [
         {
-            "person_id": 12,
+            "id": 12,
             "name": "احمد محمد احمد",
             "image_url": "static/uploads/hostage2.jpg",
             "match": True,
+            "match_id": 3435435,
             "match_percentage": 89
         },
         {
-            "person_id": 21,
+            "id": 21,
             "name": "خالد مزمل محمد",
             "image_url": "static/uploads/facetest.jpg",
             "match": False
@@ -88,6 +125,24 @@ def user_upload():
         
     ]
     return jsonify(uploads)
+
+@app.route('/api/get_match/<int:match_id>')
+def get_missing_match(match_id):
+    match = {
+        'image_url': 'static/uploads/hostage1.jpg',
+        'percent': 70,
+        'name': "احمد محمد احمد",
+        'age': 35,
+        'sex': "ذكر",
+        'condition': "سليم",
+        'dateOfFounding': "2025/12/12",   
+        'findingEntity': "منظمة الهلال الاحمر فرع الشمالية",
+        'location': "الشمالية - وادي حلفا",
+        'contact': "002496564646",
+        'contact2': "0024965465656"
+    }
+    return jsonify(match)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

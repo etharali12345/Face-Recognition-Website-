@@ -11,7 +11,7 @@
             <form action="#" method="POST" class="needs-validation" id="LoginForm" novalidate>
                 <!--Email or Phone-->
                 <div class="form-floating mb-3">
-                    <input type="text" name="emailOrPhone" class="form-control" id="emailOrPhone" placeholder="" required pattern="(^\+?[0-9]{8,15}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)">
+                    <input type="text" name="emailOrPhone" class="form-control" id="emailOrPhone" placeholder="" required pattern="(^\+?[0-9]{8,15}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)" autocomplete="username"> 
                     <label for="emailOrPhone">البريد الالكتروني او الهاتف</label>
                     <div class="invalid-feedback text-end">
                        الرجاء إدخال بريد إلكتروني او رقم هاتف صالح
@@ -19,7 +19,7 @@
                 </div>
                 <!--Password-->
                 <div class="form-floating mb-3">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="" required>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="" required autocomplete="current-password">
                     <label for="password" class="text-start">كلمة المرور</label>
                     <div class="invalid-feedback text-end">
                         الرجاء إدخال كلمة المرور

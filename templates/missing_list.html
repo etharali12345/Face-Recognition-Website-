@@ -22,8 +22,67 @@
   </div>
 </div>
 
+<!-- Match Details Modal -->
+<div class="modal fade" id="matchModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title">تفاصيل المطابقة</h5>
+      </div>
+      <div class="modal-body">
+        <!-- Percent -->
+        <div class="row g-0 justify-content-center">
+          <!-- Result image Column -->
+          <div class="col-11 p-1 d-flex justify-content-center">
+            <div id="modal-drop-result">
+              <img id="modal-result-image" src="" alt="Matched person" class="img-fluid rounded shadow-sm">
+            </div>
+          </div>
+          <!-- Result detail Column -->
+          <div class="col-11 text-end">
+            <p class="result-info">النتيجة: <span id="modal-result-match">تطابق</span></p>
+            <p class="result-info mb-1">بنسبة: <span id="modal-percent"></span></p>
+            <p class="result-lable">الاسم</p>
+            <p class="readonly-input" id="modal-result-name"></p>
+            <div class="row">
+              <div class="col-6">
+                <p class="result-lable">العمر التقريبي</p>
+                <p class="readonly-input" id="modal-result-age"></p>
+              </div>
+              <div class="col-6">
+                <p class="result-lable">الجنس</p>
+                <p class="readonly-input" id="modal-result-sex"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <p class="result-lable">الحالة</p>
+                <p class="readonly-input" id="modal-result-condition"></p>
+              </div>
+              <div class="col-6">
+                <p class="result-lable">تاريخ العثور</p>
+                <p class="readonly-input" id="modal-result-dateOfFounding"></p>
+              </div>
+            </div>
+            <p class="result-lable">جهة العثور</p>
+            <p class="readonly-input" id="modal-result-findingEntity"></p>
+            <p class="result-lable">مكان العثور</p>
+            <p class="readonly-input" id="modal-result-place"></p>
+            <p class="result-lable">للتواصل مع الجهة</p>
+            <p class="readonly-input" id="modal-result-contact"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container-xl mt-3 mb-3">
-    <div class="uploaded-pepole-text d-flex mb-3 p-3 rounded  title"> قائمة المفقودين الذين قمت بإضافتهم</div>
+    <div class="uploaded-pepole-text d-flex mb-3 p-3 rounded title"> قائمة المفقودين الذين قمت بإضافتهم</div>
     <div class="row gap-5 d-flex justify-content-center rounded m-0 p-5" id="my-uploads-row">
     </div>
 </div>
