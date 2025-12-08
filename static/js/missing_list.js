@@ -73,7 +73,7 @@ async function showMatchDetails(matchId) {
         document.getElementById('modal-result-dateOfFounding').textContent = match.dateOfFounding;
         document.getElementById('modal-result-findingEntity').textContent = match.findingEntity;
         document.getElementById('modal-result-place').textContent = match.location;
-        document.getElementById('modal-result-contact').textContent = match.contact;
+        document.getElementById('modal-result-contact').textContent = match.contact + ' او ' +match.contact2;
         
         const matchModal = new bootstrap.Modal(document.getElementById('matchModal'));
         matchModal.show();
