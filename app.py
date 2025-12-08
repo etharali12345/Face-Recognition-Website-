@@ -19,7 +19,7 @@ def login_fun():
             data = {
                 "valid": True, 
                 "user": {
-                    "role": "admin"
+                    "role": "user"
                 },
                 "redirect": url_for('index')
             }
